@@ -1,0 +1,27 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/fonts.css);
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Helvetica', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+a,
+button {
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+a:hover {
+  opacity: 0.6;
+}
+
+button:hover {
+  opacity: 0.8;
+}
