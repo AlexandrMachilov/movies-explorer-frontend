@@ -85,7 +85,7 @@
     margin: 14px 0 15px;
   }
 
-  .movies-card__name{
+  .movies-card__name {
     max-width: 224px;
   }
 }
@@ -95,7 +95,7 @@
     min-height: 271px;
     justify-self: center;
   }
-  .movies-card__info{
+  .movies-card__info {
     margin: 14px;
   }
   .movies-card__image {
@@ -106,7 +106,7 @@
   .movies-card__title {
     margin: 14px 0 14px;
   }
-  .movies-card__name{
+  .movies-card__name {
     max-width: 200px;
   }
 }

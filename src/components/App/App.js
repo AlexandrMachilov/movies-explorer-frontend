@@ -59,9 +59,7 @@ function App() {
         setCurrentUser(user);
         setSavedMovies(movies.filter((item) => item.owner === user._id));
         setSavedMoviesIds(
-          movies
-            .filter((item) => item.owner === user._id)
-            .map((item) => item.movieId)
+          movies.filter((item) => item.owner === user._id).map((item) => item.movieId)
         );
       })
       .catch((err) => {

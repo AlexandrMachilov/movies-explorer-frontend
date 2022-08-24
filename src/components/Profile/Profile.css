@@ -86,26 +86,25 @@
   margin-top: 16px;
 }
 @media screen and (max-width: 1279px) {
-    .profile__container {
-        min-height: 950px;
-        padding: 236px 0 269px;
-    }
+  .profile__container {
+    min-height: 950px;
+    padding: 236px 0 269px;
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .profile__container {
-        min-height: 706px;
-        max-width: 260px;
-        padding: 70px 0 40px;
-    }
+  .profile__container {
+    min-height: 706px;
+    max-width: 260px;
+    padding: 70px 0 40px;
+  }
 
-    .profile__button {
-        font-size: 12px;
-        line-height: 15px;
-    }
+  .profile__button {
+    font-size: 12px;
+    line-height: 15px;
+  }
 
-    .profile__input {
-        min-width: 200px;
-    }
-
+  .profile__input {
+    min-width: 200px;
+  }
 }

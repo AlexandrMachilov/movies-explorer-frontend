@@ -20,7 +20,7 @@ function Header({
               <Link to='/'>
                 <img src={logo} alt='Логотип' className='header__logo' />
               </Link>
-              <Navigation location={location} currentWidth={currentWidth}/>
+              <Navigation location={location} currentWidth={currentWidth} />
             </>
           ) : (
             <>

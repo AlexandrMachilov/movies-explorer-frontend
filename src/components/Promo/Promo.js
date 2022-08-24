@@ -11,16 +11,11 @@ function Promo() {
               Учебный проект студента факультета Веб-разработки.
             </h1>
             <p className='promo__subtitle'>
-              Листайте ниже, чтобы узнать больше про этот проект и его
-              создателя.
+              Листайте ниже, чтобы узнать больше про этот проект и его создателя.
             </p>
             <button className='promo__button'>Узнать больше</button>
           </div>
-          <img
-            src={promo__image}
-            alt='Главная картинка'
-            className='promo__image'
-          />
+          <img src={promo__image} alt='Главная картинка' className='promo__image' />
         </div>
       </div>
     </section>

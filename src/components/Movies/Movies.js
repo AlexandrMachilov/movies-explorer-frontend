@@ -44,9 +44,7 @@ function Movies({
   useEffect(() => {
     if (localStorage.getItem('filteredMovies')) {
       const filteredMovies = JSON.parse(localStorage.getItem('filteredMovies'));
-      setShortFilteredMovies(
-        filteredMovies.filter((item) => item.duration <= 40)
-      );
+      setShortFilteredMovies(filteredMovies.filter((item) => item.duration <= 40));
     }
   }, []);
 
@@ -62,10 +60,7 @@ function Movies({
       const resultShort = result.filter((item) => item.duration <= 40);
       setShortFilteredMovies(resultShort);
       if (isCheckboxChecked) {
-        localStorage.setItem(
-          'shortFilteredMovies',
-          JSON.stringify(resultShort)
-        );
+        localStorage.setItem('shortFilteredMovies', JSON.stringify(resultShort));
         localStorage.removeItem('filteredMovies');
       } else {
         localStorage.setItem('filteredMovies', JSON.stringify(result));
@@ -92,9 +87,7 @@ function Movies({
           isCheckboxChecked={isCheckboxChecked}
           onCheckboxChange={handleCheckboxChange}
           onSearchSubmit={handleSearch}
-          handleCheckboxOnLoadFromLocalstorage={
-            handleCheckboxOnLoadFromLocalstorage
-          }
+          handleCheckboxOnLoadFromLocalstorage={handleCheckboxOnLoadFromLocalstorage}
         />
         {isDataLoading ? (
           <Preloader />
@@ -103,17 +96,13 @@ function Movies({
             {isCheckboxChecked ? (
               <>
                 {isSearchHandeled && shortFilteredMovies.length === 0 && (
-                  <span className='movies__nothing-found'>
-                    Ничего не найдено
-                  </span>
+                  <span className='movies__nothing-found'>Ничего не найдено</span>
                 )}
               </>
             ) : (
               <>
                 {isSearchHandeled && filteredMovies.length === 0 && (
-                  <span className='movies__nothing-found'>
-                    Ничего не найдено
-                  </span>
+                  <span className='movies__nothing-found'>Ничего не найдено</span>
                 )}
               </>
             )}
@@ -153,10 +142,7 @@ function Movies({
                   shortFilteredMovies.slice(0, numberOfCardsToRender).length &&
                 shortFilteredMovies.length >= cardsToRender ? (
                   <div className='more-button__container'>
-                    <button
-                      className='more-button'
-                      onClick={handleButtonMoreClick}
-                    >
+                    <button className='more-button' onClick={handleButtonMoreClick}>
                       Ещё
                     </button>
                   </div>
@@ -168,10 +154,7 @@ function Movies({
                   filteredMovies.slice(0, numberOfCardsToRender).length &&
                 filteredMovies.length >= cardsToRender ? (
                   <div className='more-button__container'>
-                    <button
-                      className='more-button'
-                      onClick={handleButtonMoreClick}
-                    >
+                    <button className='more-button' onClick={handleButtonMoreClick}>
                       Ещё
                     </button>
                   </div>

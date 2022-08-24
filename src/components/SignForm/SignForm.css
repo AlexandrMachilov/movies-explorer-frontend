@@ -42,9 +42,9 @@
 }
 
 .form__button_disabled {
-  background-color: #A0A0A0;
-  background: #F8F8F8;
-  color: #C2C2C2;
+  background-color: #a0a0a0;
+  background: #f8f8f8;
+  color: #c2c2c2;
 }
 
 .form__signin {

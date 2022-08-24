@@ -4,9 +4,7 @@ function Footer() {
   return (
     <footer className='footer'>
       <div className='footer__container'>
-        <h4 className='footer__title'>
-          Учебный проект Яндекс.Практикум х BeatFilm.
-        </h4>
+        <h4 className='footer__title'>Учебный проект Яндекс.Практикум х BeatFilm.</h4>
         <div className='footer__content'>
           <p className='footer__copyright'>&copy; 2022</p>
           <ul className='footer__links'>
@@ -29,11 +27,7 @@ function Footer() {
               </a>
             </li>
             <li className='foooter__links-element'>
-              <a
-                className='footer__link'
-                href='https://facebook.com'
-                target='blank'
-              >
+              <a className='footer__link' href='https://facebook.com' target='blank'>
                 Facebook
               </a>
             </li>

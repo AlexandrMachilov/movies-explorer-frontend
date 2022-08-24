@@ -5,12 +5,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
 import './SavedMovies.css';
 
-function SavedMovies({
-  savedMovies,
-  onDeleteMovie,
-  savedMoviesIds,
-  isDataLoading,
-}) {
+function SavedMovies({ savedMovies, onDeleteMovie, savedMoviesIds, isDataLoading }) {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [shortFilteredMovies, setShortFilteredMovies] = useState([]);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
@@ -60,17 +55,13 @@ function SavedMovies({
             {isCheckboxChecked ? (
               <>
                 {shortFilteredMovies.length === 0 && (
-                  <span className='movies__nothing-found'>
-                    Ничего не найдено
-                  </span>
+                  <span className='movies__nothing-found'>Ничего не найдено</span>
                 )}
               </>
             ) : (
               <>
                 {filteredMovies.length === 0 && (
-                  <span className='movies__nothing-found'>
-                    Ничего не найдено
-                  </span>
+                  <span className='movies__nothing-found'>Ничего не найдено</span>
                 )}
               </>
             )}

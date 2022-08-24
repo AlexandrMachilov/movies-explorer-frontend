@@ -4,8 +4,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useFormWithValidation } from '../useFormWithValidation/useFormWithValidation';
 
 function Profile({ loggedIn, onExit, onUpdateUserInfo }) {
-  const { values, errors, isValid, handleChange, resetForm } =
-    useFormWithValidation();
+  const { values, errors, isValid, handleChange, resetForm } = useFormWithValidation();
   const currentUser = React.useContext(CurrentUserContext);
   const [isInfoChanged, setIsInfoChanged] = useState(false);
 
@@ -39,10 +38,7 @@ function Profile({ loggedIn, onExit, onUpdateUserInfo }) {
 
   return (
     <section className='pfofile'>
-      <form
-        className='profile__container'
-        onSubmit={handleUpdateUserInfoSubmit}
-      >
+      <form className='profile__container' onSubmit={handleUpdateUserInfoSubmit}>
         <h2 className='profile__welcome'>Привет, {currentUser.name}!</h2>
         <div className='profile__info'>
           <div className='profile__info-container'>
@@ -81,10 +77,7 @@ function Profile({ loggedIn, onExit, onUpdateUserInfo }) {
         </div>
         <div className='profile__buttons'>
           {isValid && isInfoChanged ? (
-            <button
-              type='submit'
-              className='profile__button profile__button_type_submit'
-            >
+            <button type='submit' className='profile__button profile__button_type_submit'>
               Сохранить
             </button>
           ) : (

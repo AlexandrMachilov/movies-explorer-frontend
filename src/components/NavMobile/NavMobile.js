@@ -1,24 +1,16 @@
 import { Link, NavLink } from 'react-router-dom';
 import './NavMobile.css';
 
-function NavMobile(
-    props
-) {
+function NavMobile(props) {
   const closeNavPopup = () => {
     props.isChecked = false;
   };
   const linkActiveClass = ({ isActive }) => {
-    return `header__link header__link_mobile ${
-      isActive && 'header__link_mobile-active'
-    }`;
+    return `header__link header__link_mobile ${isActive && 'header__link_mobile-active'}`;
   };
 
   return (
-    <article
-      className={`nav-mobile ${
-        props.isChecked && 'nav-mobile_visible'
-      }`}
-    >
+    <article className={`nav-mobile ${props.isChecked && 'nav-mobile_visible'}`}>
       <div className='nav-mobile__popup'>
         <div>
           <NavLink

@@ -48,25 +48,22 @@ function MoviesCard({
       <a href={card.trailerLink} target='blank'>
         <img
           className='movies-card__image'
-          src={
-            location.pathname === '/movies'
-              ? serverUrl + card.image.url
-              : card.image
-          }
+          src={location.pathname === '/movies' ? serverUrl + card.image.url : card.image}
           alt={card.nameRU}
         ></img>
       </a>
       {location.pathname === '/movies' ? (
         <button
-          className={`movies-card__button ${
-            isLiked && 'movies-card__add-button_active'
-          }`}
+          className={`movies-card__button ${isLiked && 'movies-card__add-button_active'}`}
           onClick={isLiked ? handleDislike : handleLike}
         >
           Сохранить
         </button>
       ) : (
-        <button className='movies-card__button movies-card__delete-button' onClick={deleteMovie}></button>
+        <button
+          className='movies-card__button movies-card__delete-button'
+          onClick={deleteMovie}
+        ></button>
       )}
     </article>
   );
