@@ -41,6 +41,12 @@
   margin-top: 179px;
 }
 
+.form__button_disabled {
+  background-color: #A0A0A0;
+  background: #F8F8F8;
+  color: #C2C2C2;
+}
+
 .form__signin {
   display: block;
   width: fit-content;

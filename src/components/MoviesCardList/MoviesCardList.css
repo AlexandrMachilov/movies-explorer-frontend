@@ -2,7 +2,6 @@
   box-sizing: border-box;
   width: calc(100% - 2 * 70px);
   min-height: calc(100vh - 488px);
-  max-height: 1315px;
   margin: 0 auto;
   padding: 70px 0 10px;
   display: grid;
@@ -13,7 +12,7 @@
 
 .more-button__container {
   min-height: 166px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,6 +59,5 @@
 
   .more-button {
     width: 240px;
-    
   }
 }

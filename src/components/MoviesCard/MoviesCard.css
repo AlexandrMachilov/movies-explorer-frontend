@@ -21,6 +21,9 @@
   color: #000000;
   margin: 0 14px 0 0;
   max-width: 240px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .movies-card__duration {
   font-style: normal;
@@ -54,12 +57,15 @@
   border: none;
   align-self: center;
 }
+
 .movies-card__add-button_active {
   background-image: url(../../images/button-add__active.svg);
   background-color: #ff4062;
   background-repeat: no-repeat;
   background-position: center;
+  font-size: 0;
 }
+
 .movies-card__delete-button {
   background-image: url(../../images/button-delete.svg);
   background-repeat: no-repeat;
@@ -78,6 +84,10 @@
   .movies-card__title {
     margin: 14px 0 15px;
   }
+
+  .movies-card__name{
+    max-width: 224px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -95,5 +105,8 @@
 
   .movies-card__title {
     margin: 14px 0 14px;
+  }
+  .movies-card__name{
+    max-width: 200px;
   }
 }
