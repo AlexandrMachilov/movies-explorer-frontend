@@ -21,6 +21,7 @@ class MainApi {
     return fetch(`${this.url}/signup`, {
       method: 'POST',
       headers: {
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ name, password, email }),
@@ -31,6 +32,7 @@ class MainApi {
     return fetch(`${this.url}/signin`, {
       method: 'POST',
       headers: {
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ password, email }),
@@ -50,6 +52,7 @@ class MainApi {
       method: 'PATCH',
       headers: {
         authorization: this.getToken(),
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -72,6 +75,7 @@ class MainApi {
       method: 'POST',
       headers: {
         authorization: this.getToken(),
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -97,6 +101,7 @@ class MainApi {
       method: 'DELETE',
       headers: {
         authorization: this.getToken(),
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
     }).then(this._getResponseData);
@@ -107,6 +112,7 @@ class MainApi {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        Accept: 'application/json',
         Authorization: this.getToken(),
       },
     }).then(this._getResponseData);
