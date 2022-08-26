@@ -21,7 +21,6 @@ function App() {
   const routesWithFooter = ['/', '/movies', '/saved-movies'];
   const location = useLocation();
   const navigate = useNavigate();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -149,14 +148,6 @@ function App() {
     setCurrentWidth(window.innerWidth);
   };
 
-  const handleBurgerMenuClick = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
-
   useEffect(() => {
     window.addEventListener('resize', resizeHandler);
   }, [currentWidth]);
@@ -210,11 +201,12 @@ function App() {
           <>
             {routesWithHeader.includes(location.pathname) ? (
               <Header
-                location={location}
+                /* location={location}
                 currentWidth={currentWidth}
                 isMobileMenuOpen={isMobileMenuOpen}
                 onBurgerMenuClick={handleBurgerMenuClick}
-                onCloseMobileMenu={closeMobileMenu}
+                onCloseMobileMenu={closeMobileMenu} */
+                loggedIn={isLoggedIn}
               />
             ) : null}
             <Routes>
