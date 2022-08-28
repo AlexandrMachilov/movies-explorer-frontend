@@ -34,6 +34,14 @@ function MoviesCard({
     handleDeleteMovie(card);
   };
 
+  const handleLikeCLick = () => {
+    if (isLiked) {
+      handleDislike()
+    } else {
+      handleLike()
+    }
+  }
+
   const serverUrl = 'https://api.nomoreparties.co';
   const movieDuration = (min) => {
     return `${Math.floor(min / 60)}ч ${min % 60}мин`;
@@ -55,7 +63,7 @@ function MoviesCard({
       {location.pathname === '/movies' ? (
         <button
           className={`movies-card__button ${isLiked && 'movies-card__add-button_active'}`}
-          onClick={isLiked ? handleDislike : handleLike}
+          onClick={handleLikeCLick}
         >
           Сохранить
         </button>

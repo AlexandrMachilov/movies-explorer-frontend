@@ -39,6 +39,7 @@ function Movies({
   const handleCheckboxChange = () => {
     setIsCheckboxChecked(!isCheckboxChecked);
     setIsSearchHandled(true);
+    localStorage.setItem('checkboxStatus', JSON.stringify(!isCheckboxChecked));
   };
 
   useEffect(() => {

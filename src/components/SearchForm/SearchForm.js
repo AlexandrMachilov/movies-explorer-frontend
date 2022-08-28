@@ -43,8 +43,6 @@ function SearchForm({
             type='text'
             className='search__input'
             placeholder='Фильм'
-            required
-            minLength='2'
             value={searchMessage || ''}
             onChange={handleChange}
           ></input>

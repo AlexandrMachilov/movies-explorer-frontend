@@ -2,8 +2,9 @@ import './Profile.css';
 import React, { useEffect, useState } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useFormWithValidation } from '../useFormWithValidation/useFormWithValidation';
+import ProfilePopup from '../ProfilePopup/ProfilePopup';
 
-function Profile({ loggedIn, onExit, onUpdateUserInfo }) {
+function Profile({ loggedIn, onExit, onUpdateUserInfo, isRequestOk, isPopupOpen, onClosePopup }) {
   const { values, errors, isValid, handleChange, resetForm } = useFormWithValidation();
   const currentUser = React.useContext(CurrentUserContext);
   const [isInfoChanged, setIsInfoChanged] = useState(false);
@@ -37,6 +38,7 @@ function Profile({ loggedIn, onExit, onUpdateUserInfo }) {
   };
 
   return (
+    <>
     <section className='pfofile'>
       <form className='profile__container' onSubmit={handleUpdateUserInfoSubmit}>
         <h2 className='profile__welcome'>Привет, {currentUser.name}!</h2>
@@ -101,6 +103,8 @@ function Profile({ loggedIn, onExit, onUpdateUserInfo }) {
         </div>
       </form>
     </section>
+    <ProfilePopup isOpen={isPopupOpen} onClose={onClosePopup} isRequestOk={isRequestOk} />
+    </>
   );
 }
 

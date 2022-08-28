@@ -5,7 +5,7 @@
   margin: 0 auto;
   padding: 70px 0 10px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(364px, 1fr));
+  grid-template-columns: repeat(3, minmax(360px, 1fr));
   grid-column-gap: 18px;
   grid-row-gap: 37px;
 }
@@ -38,9 +38,6 @@
 
   .more-button__container {
     width: calc(100% - 2 * 30px);
-  }
-  .more-button {
-    padding: 50px 0 80px;
   }
 }
 

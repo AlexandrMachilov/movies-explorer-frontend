@@ -2,6 +2,7 @@ import SignForm from '../SignForm/SignForm';
 import './Register.css';
 import { useFormWithValidation } from '../useFormWithValidation/useFormWithValidation';
 
+
 function Register({ onRegisterSubmit }) {
   const { values, errors, isValid, handleChange } = useFormWithValidation();
 
@@ -40,6 +41,7 @@ function Register({ onRegisterSubmit }) {
       </label>
       <input
         type='email'
+        pattern=".+@.+\..+"
         id='register-email'
         name='email'
         className='form__input form__input_type_email'

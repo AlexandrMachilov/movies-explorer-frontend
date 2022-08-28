@@ -1,7 +1,7 @@
 .movies-card {
   width: 100%;
   max-width: 360px;
-  min-height: 319px;
+  max-height: 319px;
   background: #fdfdfd;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
   border-radius: 6px;

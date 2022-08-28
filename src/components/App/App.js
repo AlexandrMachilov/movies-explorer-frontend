@@ -31,6 +31,8 @@ function App() {
   const [savedMovies, setSavedMovies] = useState([]);
   const [savedMoviesIds, setSavedMoviesIds] = useState([]);
   const [isUserChecked, setIsUserChecked] = useState(false);
+  const [isRequestOk, setIsRequestOk] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -53,12 +55,19 @@ function App() {
     if (!isLoggedIn) {
       return;
     }
-    Promise.all([mainApi.getUserData(), mainApi.getSavedMovies()])
-      .then(([user, movies]) => {
+    Promise.all([
+      mainApi.getUserData(),
+      moviesApi.getMovies(),
+      mainApi.getSavedMovies(),
+    ])
+      .then(([user, allMovies, movies]) => {
         setCurrentUser(user);
+        setMovies(allMovies);
         setSavedMovies(movies.filter((item) => item.owner === user._id));
         setSavedMoviesIds(
-          movies.filter((item) => item.owner === user._id).map((item) => item.movieId)
+          movies
+            .filter((item) => item.owner === user._id)
+            .map((item) => item.movieId)
         );
       })
       .catch((err) => {
@@ -69,22 +78,11 @@ function App() {
   // Поиск фильмов
   const getMovies = (filterCallback) => {
     setIsDataLoading(true);
-    return moviesApi
-      .getMovies()
-      .then((res) => {
-        setMovies(res);
-        filterCallback(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setIsDataLoading(false);
-      });
-  };
-
+    filterCallback(movies);
+    setIsDataLoading(false);
+  }
   const handleMoviesSearchSubmit = (filterCallback) => {
-    getMovies(filterCallback);
+    getMovies(filterCallback);  
   };
 
   useMemo(() => {
@@ -145,8 +143,17 @@ function App() {
   };
 
   const resizeHandler = () => {
-    setCurrentWidth(window.innerWidth);
+    setTimeout(() => {
+      setCurrentWidth(window.innerWidth);
+    }, 10000);
   };
+
+  useEffect(() => {
+    window.addEventListener('resize', resizeHandler);
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+    };
+  }, []);
 
   useEffect(() => {
     window.addEventListener('resize', resizeHandler);
@@ -183,10 +190,17 @@ function App() {
     setCurrentUser({});
   };
 
+  const handlePopupOpen = () => {
+    setIsPopupOpen(false);
+    setIsRequestOk(false);
+  };
+
   const handleUpdateUserInfo = ({ name, email }) => {
     mainApi
       .editUserData({ name, email })
       .then((res) => {
+        setIsRequestOk(!isRequestOk);
+        setIsPopupOpen(true);
         setCurrentUser(res);
       })
       .catch((err) => {
@@ -200,14 +214,7 @@ function App() {
         {isUserChecked ? (
           <>
             {routesWithHeader.includes(location.pathname) ? (
-              <Header
-                /* location={location}
-                currentWidth={currentWidth}
-                isMobileMenuOpen={isMobileMenuOpen}
-                onBurgerMenuClick={handleBurgerMenuClick}
-                onCloseMobileMenu={closeMobileMenu} */
-                loggedIn={isLoggedIn}
-              />
+              <Header loggedIn={isLoggedIn} />
             ) : null}
             <Routes>
               <Route path='/' element={<Main />}></Route>
@@ -250,6 +257,9 @@ function App() {
                       loggedIn={isLoggedIn}
                       onExit={handleExit}
                       onUpdateUserInfo={handleUpdateUserInfo}
+                      isRequestOk={isRequestOk}
+                      isPopupOpen={isPopupOpen}
+                      onClosePopup={handlePopupOpen}
                     />
                   </ProtectedRoute>
                 }
