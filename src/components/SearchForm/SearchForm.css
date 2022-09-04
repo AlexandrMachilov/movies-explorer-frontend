@@ -122,10 +122,10 @@
     width: calc(100% - 2 * 30px);
   }
 
-  .search__checkbox-container{
+  .search__checkbox-container {
     justify-content: end;
   }
-  .search__input-container{
+  .search__input-container {
     margin: 0 0 30px;
   }
 }
@@ -158,10 +158,10 @@
   .checkbox__title {
     font-size: 11px;
   }
-  .search__checkbox-container{
+  .search__checkbox-container {
     justify-content: center;
   }
-  .search__input-container{
+  .search__input-container {
     margin: 0 0 41px;
   }
 }

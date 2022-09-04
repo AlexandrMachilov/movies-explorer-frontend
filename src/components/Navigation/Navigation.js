@@ -1,10 +1,10 @@
 import './Navigation.css';
 import { Link, NavLink } from 'react-router-dom';
 
-function Navigation({ location }) {
+function Navigation({ loggedIn }) {
   return (
     <>
-      {location.pathname === '/' ? (
+      {!loggedIn ? (
         <div className='header__auth'>
           <Link to='/signup' className='header__button-register'>
             Регистрация
